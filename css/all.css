@@ -1,5 +1,5 @@
 body{
-    background: url("/phantom_shadow/picture/1.jpg") no-repeat center center fixed;
+    background: url("pc/phantom_shadow/picture/1.jpg") no-repeat center center fixed;
             /*兼容浏览器版本*/
             -webkit-background-size: cover;
             -o-background-size: cover;                
