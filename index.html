@@ -6,9 +6,26 @@
         <link rel="Shortcut Icon" href="images\stu2.png" type="image/x-icon" />
         <title>欢迎来到PS</title>
         <link href="css\all.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="js\picture.js"></script>
+        <script>
+.img {
+  width: 400px;
+  height: 300px;
+  border: 1px solid #d9d9d9;
+  margin: 20px auto;
+  background-size: 100% 100%;
+}
+.img.lazy {
+  background-image: none;
+}
+.img-1 {
+  background-image: url(images\stu2.png);
+}
+        </script>
     </head>
 <html>
 <body>
+    <div class="img img-1"></div>
     <img src="images\stu2.png" alt="Didn't see the picture? Refresh or contact administrator"  width="150" height="100"> 
 <div class="container" style="border : 2px solid #000;">
     <h1>欢迎来到PS在GitHub的官网</h1>
