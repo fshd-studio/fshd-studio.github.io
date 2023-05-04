@@ -11,7 +11,7 @@
 		var bIsCE= sUserAgent.match(/windows ce/i) == "windows ce";
 		var bIsWM= sUserAgent.match(/windows mobile/i) == "windows mobile";
 		if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
-			window.location.href= '手机端跳转页面URL';
+			window.location.href= 'phone/index.html';
 		} else {
 			window.location= 'pc/index.html';
 		}
