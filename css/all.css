@@ -1,0 +1,27 @@
+body{
+    background: url("/phantom_shadow/picture/1.jpg") no-repeat center center fixed;
+            /*兼容浏览器版本*/
+            -webkit-background-size: cover;
+            -o-background-size: cover;                
+            background-size: cover;
+}
+.container {
+width: 60%;
+margin: 10% auto 0;
+/*background-color: #f0f0f0;*/
+padding: 2% 5%;
+border-radius: 10px
+
+}
+
+ul {
+padding-left: 20px;
+}
+
+ul li {
+    line-height: 2.3
+}
+
+a {
+color: #20a53a
+}
