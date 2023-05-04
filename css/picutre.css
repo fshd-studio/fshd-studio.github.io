@@ -1,0 +1,13 @@
+.img {
+    width: 400px;
+    height: 300px;
+    border: 1px solid #d9d9d9;
+    margin: 20px auto;
+    background-size: 100% 100%;
+  }
+  .img.lazy {
+    background-image: none;
+  }
+  .img-1 {
+    background-image: url(images\stu2.png);
+  }
