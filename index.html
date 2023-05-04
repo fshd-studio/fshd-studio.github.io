@@ -35,19 +35,6 @@
         }
         
             </style>
-            <style> 
-                #INDEXT_RB_AD{ 
-                clear:both; width:200px; height:100px; z-index:1000; overflow:hidden; border:1px #ccc solid; 
-                bottom:5px; right:5px; 
-                 
-                /* 火狐、Google浏览器只需要后面这一句代码即可 */ 
-                position:fixed !important; 
-                 
-                /* 以下代码是针对IE6的 */ 
-                _position:absolute; 
-                _top: expression( eval( document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight - (parseInt(this.currentStyle.marginTop,10)||0) - (parseInt(this.currentStyle.marginBottom,10)||0) ) - (parseInt(this.currentStyle.bottom,10)||0) ); 
-                } 
-                </style> 
     </head>
 <html>
 <body>
@@ -60,11 +47,8 @@
 
     </ul>
 </div>
-
-<div style="height:2000px;">使用CSS将Div固定在窗口的右下角</div> 
-<div id="INDEXT_RB_AD" style="display:;"> 
-<div align="right" style=" width:100%; height:25px; line-height:25px; cursor:pointer; " οnclick="document.getElementById('INDEXT_RB_AD').style.display = 'none';">关闭</div> 
-<div>这里是您要显示的内容</div> 
+<div style="width:300px;height:300px">
+    <div style="position:absolute;right:0px;bottom:0px;width:60px;border:1px solid #aaa">你好</div>
 </div>
 </body>
 </html>
