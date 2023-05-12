@@ -12,8 +12,10 @@
 
     "prohibition": "false1",
 
-    "canbeconnectedto": "true1",
+    "canbeconnectedto": "true",
 
+    "forceupdates": "false",
+    
     "links": [
 
         {
