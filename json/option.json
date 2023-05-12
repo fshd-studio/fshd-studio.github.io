@@ -12,6 +12,8 @@
 
     "prohibition": "false",
 
+    "canbeconnectedto": "true",
+
     "links": [
 
         {
