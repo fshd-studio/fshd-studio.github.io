@@ -6,13 +6,5 @@
     "available": "true",
     "prohibition": "false",
     "canbeconnectedto": "true",
-    "forceupdates": "false",
-    "links": [
-        {
-            "name": "?",
-            "url": "?",
-            "pictureurl":"?"
-
-        }
-    ]
+    "forceupdates": "false"
 }
