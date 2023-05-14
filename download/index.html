@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>下载前须知</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #f6f6f6;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: 500;
+      color: #fff;
+      background-color: #007bff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .download-btn:hover {
+      background-color: #0069d9;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      position: relative;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      width: 80%;
+      max-width: 500px;
+      background-color: #fff;
+      text-align: center;
+    }
+
+    .document {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: left;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .document h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #007bff;
+    }
+
+    .modal-buttons {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #fff;
+      background-color: #007bff;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .btn:hover {
+      background-color: #0069d9;
+    }
+
+    .btn-cancel {
+      background-color: #ccc;
+    }
+
+    .btn-cancel:hover {
+      background-color: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>下载前须知</h1>
+    <p>请阅读以下下载前须知，并点击“下载”按钮以继续。</p>
+    <button class="download-btn">下载</button>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <h2>下载前须知：</h2>
+        <div class="document">
+          <a href="https://fastwalkergy.github.io/f/privacy.html" style="text-decoration:none" target="_blank"><h3>隐私政策(点击查看)</h3></a>
+        </div>
+        <div class="document">
+        <a href="https://fastwalkergy.github.io/f/disclaimer.html" style="text-decoration:none" target="_blank"><h3>免责声明(点击查看)</h3></a>
+        </div>
+        <div class="modal-buttons">
+          <button id="agree-btn" class="btn">同意并下载</button>
+          <button id="cancel-btn" class="btn btn-cancel">取消</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var downloadBtn = document.querySelector(".download-btn");
+    var modal = document.getElementById("modal");
+    var agreeBtn = document.getElementById("agree-btn");
+    var cancelBtn = document.getElementById("cancel-btn");
+
+    downloadBtn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    agreeBtn.onclick = function() {
+      modal.style.display = "none";
+      window.location.href = "https://github.com/fastwalkergy/P-S-K/releases/download/v8.12.154.129-beta/Phantom-Shadow-Kit-setup.exe";
+    }
+
+    cancelBtn.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
