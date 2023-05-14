@@ -9,6 +9,30 @@ body {
 
 
 
+.return-link {
+  display: inline-block;
+  padding: 8px 10px;
+  margin-right: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #6c63ff;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+.return-link:hover,
+.return-link:focus {
+  background-color: #4d49b9;
+  outline: none;
+}
+
+.return-link span {
+  margin-right: 5px;
+}
+
+
+
 /* 固定搜索框在顶部 */
 .search-container {
 	position: fixed;
@@ -21,8 +45,9 @@ body {
 	align-items: center;
 	padding: 10px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	background-color: #fff;
+	background-color: #a09f9f;
 }
+
 
 #search-input {
 	width: 70%;
@@ -47,7 +72,7 @@ body {
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	transition: box-shadow 0.3s ease;
 	border-radius: 10px;
-	background-color: #fff;
+	background-color: #d6eb9c;
 }
 
 .question-list:hover {
