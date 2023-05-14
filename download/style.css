@@ -38,7 +38,7 @@ html {
   
   .psk-nav__list {
     display: flex;
-    justify-content: flex-end;
+    /*justify-content: flex-end;*/
   }
   
   .psk-nav__item:not(:last-child) {
@@ -80,7 +80,7 @@ html {
     display: flex;
     align-items: center;
     color: #fff;
-    background-image: url('./banner.jpg');
+    background-image: url('./image/2.jpg');
     background-size: cover;
     background-position: center;
     text-align: center;
