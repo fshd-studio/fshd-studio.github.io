@@ -1,0 +1,246 @@
+/* Reset CSS */
+html {
+    font-size: 62.5%;
+  }
+  
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Global styles */
+  .psk-container {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 1.6rem;
+  }
+  
+  .psk-header {
+    background-color: #fff;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+  }
+  
+  .psk-nav__list {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .psk-nav__item:not(:last-child) {
+    margin-right: 2.4rem;
+  }
+  
+  .psk-brand {
+    font-weight: 700;
+  }
+  
+  .psk-button {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .psk-button:hover {
+    transform: translateY(-2px);
+  }
+  
+  .psk-button--primary {
+    color: #fff;
+    background-color: #00A3FF;
+    border: none;
+  }
+  
+  .psk-button--primary:hover {
+    background-color: #0092E0;
+  }
+  
+  .psk-banner {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    background-image: url('./banner.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+  }
+  
+  .psk-banner h1 {
+    font-size: 5rem;
+    margin-bottom: 2.4rem;
+  }
+  
+  .psk-banner p {
+    font-size: 2rem;
+    margin-bottom: 4.8rem;
+  }
+  
+  .psk-section h2 {
+    font-size: 3.2rem;
+    margin-bottom: 2.4rem;
+  }
+  
+  .features {
+    list-style: disc;
+    margin-left: 2.4rem;
+    margin-bottom: 4.8rem;
+  }
+  
+  .evaluation__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4.8rem;
+  }
+  
+  .evaluation__img {
+    width: 10rem;
+    height: 10rem;
+    margin-right: 2.4rem;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .evaluation__name {
+    font-size: 2.4rem;
+    margin-bottom: 1.6rem;
+  }
+  
+  .user-case__item {
+    display: flex;
+    margin-bottom: 4.8rem;
+  }
+  
+  .user-case__img {
+    width: 25rem;
+    height: 18.75rem;
+    margin-right: 2.4rem;
+    object-fit: cover;
+  }
+  
+  .user-case__desc {
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+  }
+  
+  .psk-footer {
+    padding: 4.8rem 0;
+  }
+  
+  .psk-footer__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .psk-footer__left {
+    font-size: 1.8rem;
+    color: #666;
+  }
+  
+  .psk-footer__right a:not(:last-child) {
+    margin-right: 1.6rem;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .psk-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #fff;
+      position: fixed;
+      top: 0;
+      left: -100%;
+      height: 100vh;
+      width: 80%;
+      z-index: 9999;
+      transition: all 0.5s ease-in-out;
+    }
+  
+    .psk-nav--active {
+      left: 0;
+    }
+  
+    .psk-nav__list {
+      flex-direction: column;
+      margin-top: 4.8rem;
+    }
+  
+    .psk-nav__item:not(:last-child) {
+      margin-right: 0;
+      margin-bottom: 1.6rem;
+    }
+  
+    .psk-brand {
+      display: block;
+      text-align: center;
+      margin-bottom: 3.2rem;
+    }
+  
+    .psk-button {
+      width: 100%;
+      margin-top: 2.4rem;
+    }
+  
+    .psk-banner {
+      height: auto;
+      min-height: 50vh;
+      padding: 9.6rem 0;
+    }
+  
+    .psk-banner h1 {
+      font-size: 4rem;
+      margin-bottom: 1.6rem;
+    }
+  
+    .psk-banner p {
+      font-size: 1.8rem;
+      margin-bottom: 3.2rem;
+    }
+  
+    .evaluation__item {
+      flex-direction: column;
+      margin-bottom: 3.2rem;
+    }
+  
+    .evaluation__img {
+      width: 6rem;
+      height: 6rem;
+      margin-right: 0;
+      margin-bottom: 1.6rem;
+    }
+  
+    .user-case__item {
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 3.2rem;
+    }
+  
+    .user-case__img {
+      width: 100%;
+      height: auto;
+      margin-right: 0;
+      margin-bottom: 1.6rem;
+    }
+  }
+  
