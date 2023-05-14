@@ -19,3 +19,17 @@ searchInput.addEventListener('input', function() {
 		});
 	}
 });
+const inputBox = document.querySelector('#searchBox');
+const clearBtn = document.querySelector('#clearBtn');
+
+inputBox.addEventListener('keyup', () => {
+  if (inputBox.value.length > 0) {
+    clearBtn.style.display = 'block';
+  } else {
+    clearBtn.style.display = 'none';
+  }
+});
+clearBtn.addEventListener('click', () => {
+  inputBox.value = '';
+  clearBtn.style.display = 'none';
+});
