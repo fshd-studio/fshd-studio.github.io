@@ -6,14 +6,44 @@ body {
 	background-color: #f2f2f2;
 }
 
+/* 固定搜索框在顶部 */
+.search-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 9999;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	background-color: #fff;
+}
+
+#search-input {
+	width: 70%;
+	padding: 10px;
+	border-radius: 30px;
+	border: none;
+	background-color: #eee;
+	font-size: 1rem;
+	outline: none;
+	transition: box-shadow 0.3s ease;
+}
+
+#search-input:hover,
+#search-input:focus {
+	box-shadow: none;
+}
+
 .question-list {
 	max-width: 720px;
-	margin: 20px auto;
+	margin: 80px auto 20px; /* 增加上边距 */
 	padding: 0 20px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	transition: box-shadow 0.3s ease;
 	border-radius: 10px;
-	overflow: hidden;
 	background-color: #fff;
 }
 
@@ -33,53 +63,16 @@ body {
 	margin-bottom: 1rem;
 }
 
-.search-container {
-	position: fixed;
-	top: 2rem;
-	left: 50%;
-	transform: translateX(-50%);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	transition: box-shadow 0.3s ease;
-	overflow: hidden;
-	background-color: #fff;
-	border-radius: 30px;
-	padding: 10px;
+/* 给每个问题添加一些间距 */
+.question-list .question:not(:first-child) { 
+    margin-top: 10px;
 }
-
-.search-container:hover {
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-#search-input {
-	padding: 10px 20px;
-	border-radius: 30px;
-	border: none;
-	background-color: #eee;
-	font-size: 1rem;
-	outline: none;
-	min-width: 300px;
-	transition: box-shadow 0.3s ease;
-	overflow: hidden;
-}
-
-#search-input:hover,
-#search-input:focus {
-	box-shadow: none;
-}
-
-.question-list .question:first-child {
-	margin-top: 0;
-}
-
-.question-list .question:last-child {
-	margin-bottom: 0;
+.question-list .question:not(:last-child) { 
+    margin-bottom: 10px;
 }
 
 .question {
-	margin: 1rem 0;
+	margin: 0;
 	padding: 1rem;
 	background-color: #fff;
 	border-radius: 10px;
@@ -90,4 +83,19 @@ body {
 
 .question:hover {
 	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 768px) {
+	/* 在手机上缩小问题列表的宽度 */
+	.question-list {
+		max-width: 100%;
+	}
+	
+	/* 减少问题与列表边缘之间的间距 */
+	.question-list .question:not(:first-child) { 
+	    margin-top: 5px;
+	}
+	.question-list .question:not(:last-child) { 
+	    margin-bottom: 5px;
+	}
 }
