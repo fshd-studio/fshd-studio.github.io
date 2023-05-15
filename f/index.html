@@ -1,20 +1,184 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-	<meta charset="UTF-8">
-	<title>PS工作室 免责声明&隐私政策&用户政策&版权声明</title>
+  <meta charset="UTF-8">
+  <title>PS工作室 免责声明&隐私政策&用户政策&版权声明</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      background: linear-gradient(to right, #9796f0, #fbc7d4);
+    }
+    
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      background-color: #3a6073;
+      color: #fff;
+      padding: 0 20px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    
+    h1 {
+      font-size: 24px;
+    }
+    
+    nav {
+      background-color: #eee;
+      padding: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+    
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    nav li {
+      display: inline-block;
+      margin-right: 20px;
+    }
+    
+    nav a {
+      color: #333;
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: all .3s ease-in-out;
+    }
+    
+    nav a:hover {
+      color: #fff;
+      background-color: #3a6073;
+    }
+    
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+      border-radius: 10px;
+    }
+    
+    section {
+      margin-bottom: 30px;
+    }
+    
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    
+    p {
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    
+    footer {
+      background: #8e9eab;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      height: 60px; 
+    }
+    
+    a {
+      color: #4fa174;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    /* 响应式布局 */
+    @media screen and (max-width: 768px) {
+      header {
+        height: 80px;
+        padding: 0 10px;
+      }
+      
+      h1 {
+        font-size: 20px;
+      }
+      
+      nav {
+        padding: 5px;
+      }
+      
+      nav li {
+        display: block;
+        margin-bottom: 10px;
+      }
+      
+      nav a {
+        display: block;
+        padding: 5px 0;
+      }
+      
+      main {
+        margin-top: 20px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-	<h1>PS工作室 免责声明&隐私政策&用户政策&版权声明</h1>
-	<h2>免责声明</h2>
-    <p><a href="disclaimer.html" target="_blank">PS工作室免责声明</a></p>
-	<h2>隐私政策</h2>
-	<p>我们非常重视保护用户的个人隐私。请查看<a href="privacy.html" target="_blank">隐私政策</a>了解更多细节。</p>
-	<h2>用户政策&版权声明</h2>
-	<p>我们非常重视保护用户的各项权益。请查看<a href="policy.html" target="_blank">用户政策&版权声明</a>了解更多细节。</p>
-	<p>如果您对我们有任何疑问或建议，请<a href="mailto:ps.studio.official.email@gmail.com">联系我们</a>。</p>
-	<h2 style="color: red;">
-		We partner with Microsoft Clarity and Microsoft Advertising to capture how you use and interact with our website through behavioral metrics, heatmaps, and session replay to improve and market our products/services. Website usage data is captured using first and third-party cookies and other tracking technologies to determine the popularity of products/services and online activity. Additionally, we use this information for site optimization, fraud/security purposes, and advertising. For more information about how Microsoft collects and uses your data, visit the<a href="https://privacy.microsoft.com/zh-CN/privacystatement"> Microsoft Privacy Statement.</a>
-	</h2>
+  <header>
+    <h1>PS工作室</h1>
+    <nav>
+      <ul>
+        <li><a href="#disclaimer">免责声明</a></li>
+        <li><a href="#privacy-policy">隐私政策</a></li>
+        <li><a href="#user-policy">用户政策</a></li>
+        <li><a href="#copyright">本网站使用政策</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <section id="disclaimer">
+      <h2>免责声明</h2>
+      <p><a href="disclaimer.html" target="_blank">PS工作室免责声明</a></p>
+    </section>
+    
+    <section id="privacy-policy">
+      <h2>隐私政策</h2>
+      <p>我们非常重视保护用户的个人隐私。请查看<a href="privacy.html" target="_blank">隐私政策</a>了解更多细节。</p>
+    </section>
+    
+    <section id="user-policy">
+      <h2>用户政策</h2>
+      <p>我们非常重视保护用户的各项权益。请查看<a href="policy.html" target="_blank">用户政策&版权声明</a>了解更多细节。</p>
+    </section>
+    
+    <section id="copyright">
+      <h2>本网站使用政策</h2>
+      <p>使用本网站时，您需遵守当地法律法规，并保证在使用过程中不侵犯他人合法权益。禁止使用本网站进行非法活动或传播违法信息，任何违法行为均由用户自己承担责任。</p>
+      <p>本网站的所有内容（包括但不限于文字、图片、音频、视频等）均受法律保护，未经授权不得擅自使用、复制或传播。如需转载或引用本网站内容，请注明来源。</p>
+      <p style="color: red;">We partner with Microsoft Clarity and Microsoft Advertising to capture how you use and interact with our website through behavioral metrics, heatmaps, and session replay to improve and market our products/services. Website usage data is captured using first and third-party cookies and other tracking technologies to determine the popularity of products/services and online activity. Additionally, we use this information for site optimization, fraud/security purposes, and advertising. For more information about how Microsoft collects and uses your data, visit the<a href="https://privacy.microsoft.com/zh-CN/privacystatement"> Microsoft Privacy Statement.</a></p>
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; 2023 PS工作室. All Rights Reserved. | <a href="#">联系我们</a></p>
+  </footer>
 </body>
 </html>
