@@ -1,0 +1,11 @@
+{
+    "root": {
+      "images": {
+        "nature.jpg": {},
+        "landscape.png": {},
+        "sea.png": {}
+      }
+    },
+    "allowed_types": ["jpg", "png"]
+  }
+  

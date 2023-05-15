@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>上传图片</title>
+  <meta charset="UTF-8">
+  <noscript>
+    <style>
+      body { display:none; }
+      h1 { font-size: 24px; text-align: center; margin-top: 50px; }
+      p { font-size: 16px; text-align: center; margin-top: 20px; }
+    </style>
+    <h1>JavaScript 已禁用</h1>
+    <p>请启用 JavaScript 后再使用本网站</p>
+  </noscript>
+</head>
+<body>
+<script>
+  document.getElementsByTagName('noscript')[0].remove(); // 移除 noscript 标签
+</script>
+
+  <h1>上传图片</h1>
+  <form action="#" id="upload-form" enctype="multipart/form-data">
+    <input type="file" id="file-input">
+    <input type="button" value="上传" onclick="uploadImage()">
+  </form>
+  
+  <script>
+    function uploadImage() {
+      var input = document.getElementById('file-input');
+      if (!input) {
+        alert('请选择要上传的文件！');
+        return;
+      }
+
+      var file = input.files[0];
+      if (!file) {
+        alert('请选择要上传的文件！');
+        return;
+      }
+
+      var allowedTypes = ['image/jpeg', 'image/png'];
+      if (!allowedTypes.includes(file.type)) {
+         alert('只允许上传 jpg 和 png 格式的图片！');
+         return;
+      }
+
+      var formData = new FormData();
+      formData.append('file', file);
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          alert('文件上传成功！');
+          var json = JSON.parse(xhr.responseText);
+          updateData(json.filename);
+        }
+      };
+      xhr.open('POST', 'upload.php', true); // 注意这里仅作为示例，该路径无需存在
+      xhr.send(formData);
+    }
+
+    function updateData(filename) {
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          var json = JSON.parse(xhr.responseText);
+          var root = json.root;
+          var allowedTypes = json.allowed_types;
+          var fileType = filename.split('.').pop();
+          if (allowedTypes.includes(fileType)) {
+            if (!root.update) {
+              root.update = {};
+            }
+            root.update[filename] = {};
+            var data = JSON.stringify(json, null, 2);
+            var xhr2 = new XMLHttpRequest();
+            xhr2.onreadystatechange = function() {
+              if (xhr2.readyState == 4 && xhr2.status == 200) {
+                alert('data.json 文件已更新！');
+              }
+            };
+            xhr2.open('POST', 'save_data.php', true); // 注意这里仅作为示例，该路径无需存在
+            xhr2.setRequestHeader('Content-Type', 'application/json');
+            xhr2.send(data);
+          } else {
+            alert('只允许上传 jpg 和 png 格式的图片！');
+          }
+        }
+      };
+      xhr.open('GET', 'data.json', true);
+      xhr.send();
+    }
+  </script>
+</body>
+</html>

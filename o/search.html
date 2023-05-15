@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>文件搜索</title>
+  <title>图片搜索</title>
   <meta charset="UTF-8">
   <noscript>
     <style>
@@ -18,21 +18,52 @@
   document.getElementsByTagName('noscript')[0].remove(); // 移除 noscript 标签
 </script>
 
-  <h1>文件搜索</h1>
-  <p>请输入文件名或路径：</p>
-  <input type="text" id="filename">
-  <button onclick="searchFile()">搜索</button>
+  <h1>图片搜索</h1>
+  <p>请输入图片名称或路径：</p>
+  <input type="text" id="filename" onkeyup="showHint(this.value)">
+  <button onclick="searchImage()">搜索</button>
+  <p id="hint"></p>
 
   <script>
-    function searchFile() {
+    function searchImage() {
       var filename = document.getElementById('filename').value;
-      var allowed_types = ['html', 'txt', 'jpg', 'png'];
       var ext = filename.split('.').pop();
 
-      if (allowed_types.includes(ext)) {
-        window.location.href = filename; // 跳转到该文件页面
+      if (ext == 'jpg' || ext == 'png') {
+        window.location.href = filename; // 跳转到该图片页面
       } else {
-        alert('文件类型不允许被搜索！');
+        alert('只允许搜索 JPG 和 PNG 格式的图片！');
+      }
+    }
+
+    function showHint(str) {
+      if (str.length == 0) {
+        document.getElementById("hint").innerHTML = "";
+        return;
+      } else {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            var json = JSON.parse(xhr.responseText);
+            var allowed_types = json.allowed_types;
+            var files = json.root;
+            var hint = '';
+
+            for (var path in files) {
+              var folder = files[path];
+              for (var name in folder) {
+                var ext = name.split('.').pop();
+                if (allowed_types.includes(ext) && name.indexOf(str) !== -1) {
+                  hint += '<div>' + path + '/' + name + '</div>';
+                }
+              }
+            }
+
+            document.getElementById("hint").innerHTML = hint;
+          }
+        };
+        xhr.open("GET", "data.json", true);
+        xhr.send();
       }
     }
   </script>
