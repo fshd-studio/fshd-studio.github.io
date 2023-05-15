@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>文件搜索</title>
+  <meta charset="UTF-8">
+  <noscript>
+    <style>
+      body { display:none; }
+      h1 { font-size: 24px; text-align: center; margin-top: 50px; }
+      p { font-size: 16px; text-align: center; margin-top: 20px; }
+    </style>
+    <h1>JavaScript 已禁用</h1>
+    <p>请启用 JavaScript 后再使用本网站</p>
+  </noscript>
+</head>
+<body>
+<script>
+  document.getElementsByTagName('noscript')[0].remove(); // 移除 noscript 标签
+</script>
+
+  <h1>文件搜索</h1>
+  <p>请输入文件名或路径：</p>
+  <input type="text" id="filename">
+  <button onclick="searchFile()">搜索</button>
+
+  <script>
+    function searchFile() {
+      var filename = document.getElementById('filename').value;
+      var allowed_types = ['html', 'txt', 'jpg', 'png'];
+      var ext = filename.split('.').pop();
+
+      if (allowed_types.includes(ext)) {
+        window.location.href = filename; // 跳转到该文件页面
+      } else {
+        alert('文件类型不允许被搜索！');
+      }
+    }
+  </script>
+</body>
+</html>
