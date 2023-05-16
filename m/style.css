@@ -55,4 +55,28 @@ body {
     border-radius: 5px;
     margin-bottom: 10px;
   }
+  footer {
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-top: 50px;
+  }
+  
+  #policy {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  #policy h3 {
+    color: #666;
+  }
+  
+  #policy a {
+    color: #666;
+    text-decoration: none;
+  }
+  
+  #policy a:hover {
+    text-decoration: underline;
+  }
   
