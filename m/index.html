@@ -1,0 +1,123 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>留言板</title>
+  </head>
+  <body>
+    <h1>留言板</h1>
+    <form id="message-form">
+      <label for="name">姓名：</label>
+      <input type="text" name="name" id="name"><br>
+      <label for="message">留言：</label>
+      <textarea name="message" id="message"></textarea><br>
+      <button type="submit">提交</button>
+    </form>
+    <ul id="message-list"></ul>
+
+    <!-- Add Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
+
+    <!-- Add your Firebase project configuration -->
+    <script src="firebase-init.js"></script>
+
+    <script>
+      // Define a helper function to read a cookie by name
+      function readCookie(name) {
+        const nameEQ = `${name}=`;
+        const ca = document.cookie.split(';');
+        for(let i=0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) === ' ') c = c.substring(1,c.length);
+          if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+      }
+
+      // Define a function to get the messages from cookies and display them in the message list
+      function getMessagesFromCookiesAndDisplayInList() {
+        // Get the message list element
+        const messageList = document.getElementById("message-list");
+
+        // Loop through all cookies
+        document.cookie.split(";").forEach(cookie => {
+          // Split the cookie into its name and value parts
+          const [ name, value ] = cookie.trim().split("=");
+
+          // Check if the cookie name starts with "message-"
+          if (name.startsWith("message-")) {
+            // Parse the JSON data from the cookie value
+            const messageData = JSON.parse(value);
+
+            // Create a new list item element with the message data
+            const li = document.createElement("li");
+            li.innerText = `${messageData.name}: ${messageData.message}`;
+
+            // Add the list item to the message list
+            messageList.appendChild(li);
+          }
+        });
+      }
+
+      // Define a function to get the messages from Firestore and save them in a cookie
+      function getMessagesFromFirestoreAndSaveInCookie() {
+        // Get a reference to the Firestore database
+        const db = firebase.firestore();
+
+        // Get all documents from the "messages" collection
+        db.collection("messages").get().then(querySnapshot => {
+          // Loop through each document
+          querySnapshot.forEach(doc => {
+            // Save the data in a cookie with a unique name
+            document.cookie = `message-${doc.id}=${JSON.stringify(doc.data())}; expires=${new Date(Date.now() + 24 * 60 * 60 * 1000)}; path=/`;
+          });
+        })
+        .catch(error => {
+          console.log("Error getting documents: ", error);
+        });
+      }
+
+      // Call the functions when the page loads
+      window.onload = () => {
+        getMessagesFromFirestoreAndSaveInCookie();
+        getMessagesFromCookiesAndDisplayInList();
+
+        // Get a reference to the message form and add a submit event listener
+        const messageForm = document.getElementById("message-form");
+        messageForm.addEventListener("submit", event => {
+          // Prevent the default form submission behavior
+          event.preventDefault();
+
+          // Get the name and message inputs from the form
+          const nameInput = document.getElementById("name");
+          const messageInput = document.getElementById("message");
+
+          // Get a reference to the Firestore database
+          const db = firebase.firestore();
+
+          // Add a new document to the "messages" collection with the name and message data
+          db.collection("messages").add({
+            name: nameInput.value,
+            message: messageInput.value
+          })
+          .then(docRef => {
+            console.log("Document written with ID: ", docRef.id);
+
+            // Reset the form
+            nameInput.value = "";
+            messageInput.value = "";
+
+            // Save the new messages in a cookie and display it in the message list
+            getMessagesFromFirestoreAndSaveInCookie();
+            getMessagesFromCookiesAndDisplayInList();
+          })
+          .catch(error => {
+            console.error("Error adding document: ", error);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
