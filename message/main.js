@@ -1,3 +1,7 @@
+// Import the functions you need from the Firebase SDKs
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+
 // Firebase 配置信息
 const firebaseConfig = {
     apiKey: "AIzaSyDv1kHqmzY4Vb9bDFu4gL5EV1HkXLUKMY8",
@@ -8,7 +12,10 @@ const firebaseConfig = {
     appId: "1:377313749487:web:f59ac8ab07f4c0b83cee1a",
     measurementId: "G-EN5KKTV1L3"
   };
-  
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
   // 初始化 Firebase 应用
   firebase.initializeApp(firebaseConfig);
   
