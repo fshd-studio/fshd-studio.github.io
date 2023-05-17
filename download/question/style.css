@@ -113,8 +113,24 @@ body {
 	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-@media only screen and (max-width: 768px) {
-	/* 在手机上缩小问题列表的宽度 */
+
+    /* 元素垂直居中 */
+    .center { display: flex; justify-content: center; align-items: center; }
+    
+    /* 移动设备样式 */
+    @media screen and (max-width: 768px) {
+      /* 在此添加针对移动设备的CSS样式 */
+      
+      /* 标题样式 */
+      h1 { font-size: 28px; }
+      
+      /* 输入框宽度 */
+      .form-control { width: 80%; }
+      
+      /* 按钮样式 */
+      .btn { font-size: 18px; }
+
+	  	/* 在手机上缩小问题列表的宽度 */
 	.question-list {
 		max-width: 100%;
 	}
@@ -126,4 +142,4 @@ body {
 	.question-list .question:not(:last-child) { 
 	    margin-bottom: 5px;
 	}
-}
+    }
