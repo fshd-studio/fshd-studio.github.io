@@ -11,17 +11,19 @@ window.addEventListener("load", function() {
   }
   
   // 将历史记录渲染到页面上
-  function saveSearchKeyword(keyword) {
-    var history = loadSearchHistory();
-    history.push(keyword);
-    setCookie("search_history", JSON.stringify(history));
-    renderSearchHistory(history);
-  
-    document.getElementById("search-box").value = keyword;
-    document.getElementById("search-box").focus();
-    document.getElementById("search-button").click();
-  }
-  
+  function renderSearchHistory(history) {
+    var list = document.getElementById("search-history");
+    list.innerHTML = "";
+    history.forEach(function(item) {
+      var li = document.createElement("li");
+      li.innerText = item;
+      li.addEventListener("click", function() {
+        document.getElementById("search-box").value = item;
+        document.getElementById("search-box").focus(); // 点击后将焦点还给搜索框
+        saveSearchKeyword(item); // 选择历史记录后自动触发搜索
+      });
+      list.appendChild(li);
+    });
     // 如果历史记录为空，则隐藏删除按钮，否则显示
     var clearButton = document.getElementById("clear-history-button");
     if (history.length === 0) {
@@ -30,7 +32,17 @@ window.addEventListener("load", function() {
       clearButton.style.display = "block";
     }
   }
-  
+  /*function saveSearchKeyword(keyword) {
+  var history = loadSearchHistory();
+  history.push(keyword);
+  setCookie("search_history", JSON.stringify(history));
+  renderSearchHistory(history);
+
+  document.getElementById("search-box").value = keyword;
+  document.getElementById("search-box").focus();
+  document.getElementById("search-button").click();
+}
+*/ 
   // 将搜索关键字保存到 cookie 中
   function saveSearchKeyword(keyword) {
     var history = loadSearchHistory();
