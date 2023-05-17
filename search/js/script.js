@@ -68,7 +68,7 @@ form.addEventListener('submit', function(event) {
   // 如果没有搜索结果，则提示用户
   if (resultList.childElementCount === 0) {
     var li = document.createElement('li');
-    li.textContent = '没有找到与“' + keyword + '”相关的结果。';
+    li.innerHTML = '没有找到与“' + keyword + '”相关的结果。<br><a href="https://cn.bing.com/search?q='+keyword+'" target="_blank">前往bing搜索引擎搜索“'+keyword+'”</a><br><a href="https://www.baidu.com/s?wd='+keyword+'" target="_blank">前往baidu搜索引擎搜索“'+keyword+'”</a><br><a href="https://www.google.com/search?q='+keyword+'" target="_blank">前往google搜索引擎搜索“'+keyword+'”</a>';
     resultList.appendChild(li);
   }
 });
