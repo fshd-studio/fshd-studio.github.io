@@ -1,0 +1,31 @@
+#search-history-container {
+    position: relative;
+  }
+  
+  #search-history {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    background-color: #fff;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: 1px solid #ddd;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  #search-history li {
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  #search-history li:hover {
+    background-color: #f7f7f7;
+  }
+  
+  #clear-history-button {
+    display: none;
+  }
+  
