@@ -86,3 +86,25 @@ form.addEventListener('keyup', function(event) {
     location.reload();
   }
 });
+// 将搜索历史存储到本地
+function saveSearchHistory(keyword) {
+  let searchHistory = localStorage.getItem('searchHistory') ? JSON.parse(localStorage.getItem('searchHistory')) : []
+  let index = searchHistory.findIndex(item => item.keyword === keyword)
+  if (index !== -1) {
+    searchHistory.splice(index, 1)
+  }
+  searchHistory.unshift({ keyword, timestamp: Date.now() })
+  localStorage.setItem('searchHistory', JSON.stringify(searchHistory))
+}
+
+// 在页面上展示搜索历史
+function showSearchHistory() {
+  let searchHistory = localStorage.getItem('searchHistory') ? JSON.parse(localStorage.getItem('searchHistory')) : []
+  let listHtml = searchHistory.map(item => `
+    <li class="search-history-item">
+      <span class="keyword">${item.keyword}</span>
+      <span class="timestamp">${new Date(item.timestamp).toLocaleString()}</span>
+    </li>
+  `).join('')
+  document.querySelector('.search-history').innerHTML = listHtml
+}
