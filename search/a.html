@@ -6,13 +6,24 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>搜索页面</title>
 </head>
-<input type="text" id="search-box" placeholder="搜索">
-<ul id="search-history"></ul>
+<div id="search-history-container">
+    <ul id="search-history"></ul>
+    <button id="clear-history-button">删除全部历史记录</button>
+  </div>
+  <input type="text" id="search-box" placeholder="搜索">
+  <button id="search-button">搜索</button>
+  
 <script>
-    // 从 cookie 中获取最近5条搜索历史
+// 在页面加载时自动获取历史记录并放在历史记录框中
+window.addEventListener("load", function() {
+  var history = loadSearchHistory();
+  renderSearchHistory(history);
+});
+
+// 从 cookie 中获取最近10条搜索历史
 function loadSearchHistory() {
   var history = JSON.parse(getCookie("search_history") || "[]");
-  return history.slice(-5);
+  return history.slice(-10);
 }
 
 // 将历史记录渲染到页面上
@@ -27,6 +38,13 @@ function renderSearchHistory(history) {
     });
     list.appendChild(li);
   });
+  // 如果历史记录为空，则隐藏删除按钮，否则显示
+  var clearButton = document.getElementById("clear-history-button");
+  if (history.length === 0) {
+    clearButton.style.display = "none";
+  } else {
+    clearButton.style.display = "block";
+  }
 }
 
 // 将搜索关键字保存到 cookie 中
@@ -35,6 +53,12 @@ function saveSearchKeyword(keyword) {
   history.push(keyword);
   setCookie("search_history", JSON.stringify(history));
   renderSearchHistory(history);
+}
+
+// 删除全部历史记录
+function clearSearchHistory() {
+  setCookie("search_history", "[]");
+  renderSearchHistory([]);
 }
 
 // 设置 cookie
@@ -62,7 +86,14 @@ searchBox.addEventListener("keydown", function(event) {
   }
 });
 
-var history = loadSearchHistory();
-renderSearchHistory(history);
+var searchButton = document.getElementById("search-button");
+searchButton.addEventListener("click", function() {
+  saveSearchKeyword(searchBox.value);
+});
+
+var clearButton = document.getElementById("clear-history-button");
+clearButton.addEventListener("click", function() {
+  clearSearchHistory();
+});
 
 </script>
