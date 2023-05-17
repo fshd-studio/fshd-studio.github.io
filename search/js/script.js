@@ -15,7 +15,7 @@ form.addEventListener('submit', function(event) {
     {
       title: 'Phantom-Shadow-Kit',
       date: 'none',
-      summary: '帮助您轻松快捷地完成各种各样的操作，提高日常工作效率',
+      summary: '帮助您轻松快捷地完成各种各样的操作，提高日常工作效率,不是吗？',
       links: 'https://fastwalkergy.github.io/download/'
     },
     { 
