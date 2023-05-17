@@ -58,7 +58,6 @@ form.addEventListener('submit', function(event) {
         li.innerHTML = '<h2>' + data[i].title + '</h2><p class="text-muted">' +
                        data[i].date + '</p><p>' + data[i].summary + '</p>';
       } else {
-
         li.innerHTML = '<h2><a href="' + data[i].links + '" target="_blank">' + data[i].title + '</a></h2><p class="text-muted">' +
         data[i].date + '</p><p>' + data[i].summary + '</p><p style="color:rgba(20, 105, 31, 0.801)">该搜索结果有链接地址,请点击标题。</p>';
       }
