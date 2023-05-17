@@ -12,6 +12,12 @@ form.addEventListener('submit', function(event) {
 
   // 模拟后台请求数据
   var data = [
+    {
+      title: 'Phantom-Shadow-Kit',
+      date: 'none',
+      summary: '帮助您轻松快捷地完成各种各样的操作，提高日常工作效率',
+      links: 'https://fastwalkergy.github.io/download/'
+    },
     { 
       title: '如何使用PSK？',
       date: '2023-01-01',
@@ -43,12 +49,7 @@ form.addEventListener('submit', function(event) {
       date: '2023-01-03',
       summary: '不是的，为了不让某些不法分子钻空子，当您无法访问本网站或更改程序可用性时，那说明你无法使用程序'
     },
-    {
-      title: 'Phantom-Shadow-Kit',
-      date: 'none',
-      summary: '帮助您轻松快捷地完成各种各样的操作，提高日常工作效率',
-      links: 'https://fastwalkergy.github.io/download/'
-    },
+
   ];
 
   // 清空搜索结果列表
