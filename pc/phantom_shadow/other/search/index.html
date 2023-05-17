@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>搜索页面</title>
+
+  <!-- 引入Bootstrap框架的CSS文件 -->
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+
+  <!-- 引入自定义样式表 -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- 导航栏 -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Phantom Shadow</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../../../../phantom_shadow/">首页</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#footer">关于&联系我们</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 搜索主体 -->
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">搜索页面</h1>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form id="search-form" method="get">
+          <div class="input-group mb-3">
+            <input type="text" name="keyword" class="form-control" placeholder="输入关键字...">
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-outline-secondary">搜索</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- 搜索结果列表 -->
+    <div id="search-result" class="mt-5">
+      <ul class="list-unstyled">
+        <li>
+          <h2><a>欢迎使用PS搜索</a></h2>
+          <p class="text-muted">在一个很好的时候创建此功能</p>
+          <p>欢迎使用PS搜索</p>
+        </li>
+        <li>
+            <h2><a>本搜索暂时为PSK使用帮助搜索页</a></h2>
+            <p class="text-muted">在一个很好的时候创建此功能</p>
+            <p>本搜索暂时为PSK使用帮助搜索页，还不能搜索网络内容，在搜索框输入“？”（中文的问号，不要使用英文的，如果你搞不懂，直接复制引号中的问号并粘贴在搜索框搜索）查看所有内容</p>
+          </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 引入Bootstrap框架的JS文件 -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+  <!-- 自定义JS脚本 -->
+  <script src="js/script.js"></script>
+    <!-- 页脚 -->
+    <footer class="bg-dark text-light py-3 mt-auto" id="footer">
+        <div class="container">
+          <div class="row justify-content-center align-items-center">
+            <div class="col-auto">
+              <small>版权所有 © 2023 Phantom-Shadow. </small>
+            </div>
+            <div class="col-auto">
+              <small>联系我们: </small><a href="mailto:ps.studio.official.email@gmail.com" class="text-light">ps.studio.official.email@gmail.com</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+      
+</body>
+</html>
