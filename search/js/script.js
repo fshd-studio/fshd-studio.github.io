@@ -86,20 +86,21 @@ form.addEventListener('keyup', function(event) {
     location.reload();
   }
 });
-// 将搜索历史存储到本地
+
 function saveSearchHistory(keyword) {
-  let searchHistory = localStorage.getItem('searchHistory') ? JSON.parse(localStorage.getItem('searchHistory')) : []
+  let searchHistory = getCookie('searchHistory') ? JSON.parse(getCookie('searchHistory')) : []
   let index = searchHistory.findIndex(item => item.keyword === keyword)
   if (index !== -1) {
     searchHistory.splice(index, 1)
   }
   searchHistory.unshift({ keyword, timestamp: Date.now() })
-  localStorage.setItem('searchHistory', JSON.stringify(searchHistory))
+  if (searchHistory.length > 5) {
+    searchHistory.splice(5, searchHistory.length - 5)
+  }
+  setCookie('searchHistory', JSON.stringify(searchHistory), 7)
 }
-
-// 在页面上展示搜索历史
 function showSearchHistory() {
-  let searchHistory = localStorage.getItem('searchHistory') ? JSON.parse(localStorage.getItem('searchHistory')) : []
+  let searchHistory = getCookie('searchHistory') ? JSON.parse(getCookie('searchHistory')) : []
   let listHtml = searchHistory.map(item => `
     <li class="search-history-item">
       <span class="keyword">${item.keyword}</span>
@@ -107,4 +108,26 @@ function showSearchHistory() {
     </li>
   `).join('')
   document.querySelector('.search-history').innerHTML = listHtml
+}
+
+document.querySelector('.clear-history-btn').addEventListener('click', function() {
+  setCookie('searchHistory', '', -1)
+  showSearchHistory()
+})
+function setCookie(name, value, expireDays) {
+  let date = new Date()
+  date.setTime(date.getTime() + (expireDays * 24 * 60 * 60 * 1000))
+  let expires = "expires=" + date.toUTCString()
+  document.cookie = name + "=" + value + ";" + expires + ";path=/"
+}
+
+function getCookie(name) {
+  let cookieList = document.cookie.split(';')
+  for(let i = 0; i < cookieList.length; i++) {
+    let cookie = cookieList[i].trim()
+    if(cookie.indexOf(name + "=") === 0) {
+      return cookie.substring((name + "=").length, cookie.length)
+    }
+  }
+  return ""
 }
