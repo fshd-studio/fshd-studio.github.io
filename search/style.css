@@ -1,23 +1,62 @@
-#search-history-container {
+#search-container {
     position: relative;
   }
   
-  #search-history {
+  #search-fields {
+    display: flex;  
+  }
+  
+  #search-box {
+    flex-grow: 1;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  #search-button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #0077cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+  }
+  
+  #search-history-container {
     position: absolute;
-    top: 100%;
+    top: 48px;
     left: 0;
-    z-index: 1;
-    background-color: #fff;
-    padding: 0;
-    margin: 0;
-    list-style: none;
+    width: 100%;
     border: 1px solid #ddd;
+    background-color: #fff;
+    padding: 10px;
+    display: none;
+  }
+  
+  #history-heading {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  #search-history-wrapper {
     max-height: 200px;
     overflow-y: auto;
   }
   
+  #search-history {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
   #search-history li {
-    padding: 5px 10px;
+    padding: 5px;
     cursor: pointer;
   }
   
@@ -26,6 +65,17 @@
   }
   
   #clear-history-button {
-    display: none;
+    display: block;
+    margin-top: 10px;
+    background-color: #0077cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  #clear-history-button:hover {
+    background-color: #0066b2;
   }
   

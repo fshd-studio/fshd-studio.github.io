@@ -7,11 +7,19 @@
   <title>搜索页面</title>
   <link rel="stylesheet" href=style.css">
 </head>
-<div id="search-history-container">
-    <ul id="search-history"></ul>
-    <button id="clear-history-button">删除全部历史记录</button>
+<div id="search-container">
+    <div id="search-fields">
+      <input type="text" id="search-box" placeholder="搜索">
+      <button id="search-button">搜索</button>
+    </div>
+    <div id="search-history-container">
+      <div id="history-heading">搜索历史</div>
+      <div id="search-history-wrapper">
+        <ul id="search-history"></ul>
+        <button id="clear-history-button">删除全部历史记录</button>
+      </div>
+    </div>
   </div>
-  <input type="text" id="search-box" placeholder="搜索">
-  <button id="search-button">搜索</button>
+  
   
   <script src="script.js"></script>
