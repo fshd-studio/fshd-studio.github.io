@@ -60,7 +60,7 @@ form.addEventListener('submit', function(event) {
       } else {
 
         li.innerHTML = '<h2><a href="' + data[i].links + '" target="_blank">' + data[i].title + '</a></h2><p class="text-muted">' +
-        data[i].date + '</p><p>' + data[i].summary + '</p><p>该搜索结果有链接地址,请点击标题。</p>';
+        data[i].date + '</p><p>' + data[i].summary + '</p><p style="color: aquamarine;">该搜索结果有链接地址,请点击标题。</p>';
       }
       resultList.appendChild(li);
     }
