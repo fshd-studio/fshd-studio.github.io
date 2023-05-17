@@ -80,7 +80,7 @@ html {
     display: flex;
     align-items: center;
     color: #fff;
-    background-image: url('./image/2.jpg');
+    background-image: url('../images/2.gif');
     background-size: cover;
     background-position: center;
     text-align: center;
