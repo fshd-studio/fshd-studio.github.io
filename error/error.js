@@ -4,6 +4,6 @@ window.onerror = function (message, source, lineno, colno, error) {
     document.cookie = "error_url=" + encodeURIComponent(url);
   
     // 跳转到错误报告页面
-    window.location.href = "/error/error.html";
+    window.location.href = "https://fastwalkergy.github.io/error/error.html";
   }
   
