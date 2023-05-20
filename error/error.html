@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>错误报告页面</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 添加移动端适配 -->
+  <style>
+    /* 页面布局样式 */
+    body {
+      background-color: #F9F9F9;
+      font-family: 'Helvetica Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 40px 20px; /* 调整内边距 */
+      background-color: #FFFFFF;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 24px;
+      color: #333333;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #666666;
+    }
+
+    /* 错误信息表格样式 */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      margin-bottom: 30px;
+    }
+
+    th, td {
+      padding: 12px 10px;
+      text-align: left;
+      border-bottom: 1px solid #E1E1E1;
+      font-size: 16px;
+      color: #333333;
+    }
+
+    th {
+      text-transform: uppercase;
+      font-weight: bold;
+      background-color: #F7F7F7;
+      color: #666666;
+    }
+
+    /* 复制按钮样式 */
+    .btn {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .btn:hover {
+      background-color: #35943E;
+    }
+
+    /* 添加移动端适配 */
+    @media screen and (max-width: 600px) {
+      .container {
+        max-width: 100%;
+        padding: 20px 10px; /* 调整内边距 */
+        border-radius: 0;
+      }
+      h1 {
+        margin-bottom: 20px;
+        font-size: 20px;
+      }
+      th, td {
+        padding: 10px; /* 调整内边距 */
+        font-size: 14px; /* 调整字体大小 */
+      }
+      .btn {
+        padding: 12px 16px; /* 调整按钮大小 */
+        font-size: 14px; /* 调整字体大小 */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>网站错误报告</h1>
+
+    <table>
+      <tr>
+        <th>错误信息</th>
+        <td></td>
+      </tr>
+      <tr>
+        <th>URL</th>
+        <td id="url"></td>
+      </tr>
+      <tr>
+        <th>浏览器</th>
+        <td id="browser"></td>
+      </tr>
+      <tr>
+        <th>操作系统</th>
+        <td id="os"></td>
+      </tr>
+      <tr>
+        <th>错误时间</th>
+        <td id="error-time"></td>
+      </tr>
+    </table>
+
+    <button class="btn" onclick="copyToClipboard()">复制错误信息到剪贴板</button>
+    <p>如果您愿意提供错误信息帮助我们改进，或者如果您需要帮助，请联系我们的<a href="mailto:ps.studio.official.email@gmail.com">客服人员</a>，他们会尽快解决您的问题。</p>
+  </div>
+
+  <script>
+    // 读取保存在cookie中的URL，并显示
+    var url = decodeURIComponent(document.cookie.replace(/(?:(?:^|.*;\s*)error_url\s*\=\s*([^;]*).*$)|^.*$/, "$1"));
+    document.getElementById("url").textContent = url;
+
+    // 获取浏览器信息并显示
+    var browser = "";
+    var userAgent = navigator.userAgent.toLowerCase();
+    if (userAgent.indexOf("msie") != -1 || userAgent.indexOf("trident") != -1) {
+      browser = "Internet Explorer";
+    } else if (userAgent.indexOf("edge") != -1) {
+      browser = "Microsoft Edge";
+    } else if (userAgent.indexOf("chrome") != -1) {
+      browser = "Google Chrome";
+    } else if (userAgent.indexOf("firefox") != -1) {
+      browser = "Mozilla Firefox";
+    } else if (userAgent.indexOf("safari") != -1) {
+      browser = "Apple Safari";
+    }
+    document.getElementById("browser").textContent = browser;
+
+    // 获取操作系统信息并显示
+    var os = "";
+    if (navigator.platform.indexOf("Win") != -1) {
+      os = "Windows";
+    } else if (navigator.platform.indexOf("Mac") != -1) {
+      os = "Mac OS";
+    } else if (navigator.platform.indexOf("Linux") != -1) {
+      os = "Linux";
+    }
+    document.getElementById("os").textContent = os;
+
+    // 显示错误发生时间
+    var errorTime = new Date().toLocaleString();
+    document.getElementById("error-time").textContent = errorTime;
+
+    // 将错误信息复制到剪贴板
+    function copyToClipboard() {
+      var errorInfo = "URL：" + url + "\n" + "浏览器：" + browser + "\n" + "操作系统：" + os + "\n" + "错误时间：" + errorTime;
+      var tempInput = document.createElement("textarea");
+      tempInput.value = errorInfo;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+      alert("已复制错误信息到剪贴板！");
+    }
+  </script>
+</body>
+</html>
