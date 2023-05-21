@@ -1,3 +1,0 @@
-# robots.txt 
-Disallow: /m/
-Sitemap: https://fastwalkergy.github.io/sitemap/sitemap.xml
