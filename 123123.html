@@ -3,32 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>天气和时间</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
     <script>
-        $(document).ready(function() {
+        function getWeather(city) {
+            var api_url = "http://api.xn--7gqa009h.top/api/tianqi?msg=" + city;
+            var iframe = document.createElement("iframe");
+            iframe.setAttribute("src", api_url);
+            iframe.style.display = "none";
+            iframe.onload = function() {
+                var response = iframe.contentDocument.body.innerText;
+                var result = JSON.parse(response);
+                document.getElementById("weather").innerText = "天气：" + result.weather + "，温度：" + result.temperature + "℃";
+            };
+            document.body.appendChild(iframe);
+        }
+        
+        window.onload = function() {
             // 获取用户所在城市
-            $.ajax({
-                url: "http://ip-api.com/json/",
-                type: "GET",
-                success: function(result) {
-                    var city = result.city;
-                    // 中英文城市名映射表
-                    var cityMap = {
-                        "Beijing": "北京",
-                        "Shanghai": "上海",
-                        "Guangzhou": "广州",
-                        "Shenzhen": "深圳"
-                        // 可根据需要添加更多城市
-                    };
-                    // 发送天气 API 请求
-                    $.ajax({
-                        url: "http://api.xn--7gqa009h.top/api/tianqi?msg=" + cityMap[city],
-                        type: "GET",
-                        success: function(result) {
-                            $("#weather").text("天气：" + result.天气 + "，温度：" + result.temperature + "℃");
-                        }
-                    });
-                }
+            var url = "https://api.map.baidu.com/location/ip?ak=您的AK&coor=bd09ll&callback=?";
+            $.getJSON(url, function(result) {
+                var city = result.content.address_detail.city;
+                city = city.slice(0, -1); // 去掉最后的"市"
+                getWeather(city);
             });
             
             // 更新当前时间
@@ -47,9 +42,9 @@
                     second = "0" + second;
                 }
                 var timeString = hour + ":" + minute + ":" + second;
-                $("#time").text("当前时间：" + timeString);
+                document.getElementById("time").innerText = "当前时间：" + timeString;
             }, 1000);
-        });
+        };
     </script>
 </head>
 <body>
