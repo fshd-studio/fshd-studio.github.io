@@ -6,25 +6,30 @@
     <script>
         function getWeather(city) {
             var api_url = "http://api.xn--7gqa009h.top/api/tianqi?msg=" + city;
-            var iframe = document.createElement("iframe");
-            iframe.setAttribute("src", api_url);
-            iframe.style.display = "none";
-            iframe.onload = function() {
-                var response = iframe.contentDocument.body.innerText;
-                var result = JSON.parse(response);
-                document.getElementById("weather").innerText = "天气：" + result.weather + "，温度：" + result.temperature + "℃";
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", api_url, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var result = JSON.parse(xhr.responseText);
+                    document.getElementById("weather").innerText = "天气：" + result.weather + "，温度：" + result.temperature + "℃";
+                }
             };
-            document.body.appendChild(iframe);
+            xhr.send();
         }
         
         window.onload = function() {
             // 获取用户所在城市
-            var url = "https://api.map.baidu.com/location/ip?ak=您的AK&coor=bd09ll&callback=?";
-            $.getJSON(url, function(result) {
-                var city = result.content.address_detail.city;
-                city = city.slice(0, -1); // 去掉最后的"市"
-                getWeather(city);
-            });
+            var url = "http://ip-api.com/json/";
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var result = JSON.parse(xhr.responseText);
+                    var city = result.city;
+                    getWeather(city);
+                }
+            };
+            xhr.send();
             
             // 更新当前时间
             setInterval(function() {
