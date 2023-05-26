@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Download Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+      }
+
+      .container {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px #bbbbbb;
+        text-align: center;
+      }
+
+      h1 {
+        color: #333333;
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        color: #666666;
+        font-size: 18px;
+        margin-bottom: 30px;
+      }
+
+      a {
+        display: inline-block;
+        background-color: #009688;
+        color: #ffffff;
+        font-size: 18px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      a:hover {
+        transform: translateY(-3px);
+        box-shadow: 0px 3px 10px #009688;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to Download Page</h1>
+      <p>Click the button below to start downloading your file.</p>
+      <a href="#" onclick="return downloadClick();">Download Now</a>
+    </div>
+    <script>
+      function downloadClick() {
+        var currentTime = new Date();
+        var clickTime = currentTime.getTime();
+        var downloadUrl = window.location.href; // 获取当前浏览页面的URL
+
+        localStorage.setItem('downloadUrl', downloadUrl);
+        localStorage.setItem('clickTime', clickTime);
+
+        window.open('validating.html', '_blank');
+
+        return false;
+      }
+    </script>
+  </body>
+</html>

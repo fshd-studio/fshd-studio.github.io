@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Validation Page</title>
+    <script>
+      function validateDownload() {
+        var currentTime = new Date();
+        var userTime = localStorage.getItem('clickTime');
+        var downloadUrl = localStorage.getItem('downloadUrl');
+
+        if (!userTime || !downloadUrl) { // 如果LocalStorage中的值为空，则认为验证失败
+          alert('Invalid request.');
+          return false;
+        }
+
+        var timeDiff = currentTime.getTime() - userTime;
+
+        // 验证时间差小于5分钟（300000毫秒）
+        if (timeDiff > 300000) {
+          alert('The download link has expired.');
+          return false;
+        }
+
+        // 验证下载链接是否正确
+        if (downloadUrl.indexOf('http://localhost/') !== 0) { // 将这里替换为实际的文件URL
+          alert('Invalid download link.');
+          return false;
+        }
+
+        // 清空LocalStorage值
+        localStorage.removeItem('clickTime');
+        localStorage.removeItem('downloadUrl');
+
+        // 跳转至指定页面
+        window.location.href = 'https://xx.xx/xx'; // 将这里替换为实际的目标URL
+
+        return true;
+      }
+    </script>
+  </head>
+  <body onload="validateDownload()">
+    <h1>Validation Page</h1>
+    <button onclick="window.close()">Confirm</button> <!-- 点击确认关闭验证页面 -->
+  </body>
+</html>
