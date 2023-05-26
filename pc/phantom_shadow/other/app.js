@@ -9,5 +9,5 @@ xhr.onreadystatechange = function() {
 }
 
 // 发送 GET 请求获取 txt 文件内容
-xhr.open('GET', './example.txt', true);
+xhr.open('GET', './up.txt', true);
 xhr.send();
