@@ -24,6 +24,19 @@ fileContent.innerHTML = content;
 xhr.open('GET', './up.psk.txt', true);
 xhr.send();
 
+//当用户每次刷新或进入页面时，上述代码都会执行一次，从而删除磁盘缓存
+window.onload = function() {
+  // 删除缓存代码
+  if ('caches' in window) {
+    caches.keys().then(function(keyList) {
+      return Promise.all(keyList.map(function(key) {
+        return caches.delete(key);
+      }));
+    });
+  }
+};
+
+
 //这里使用类似于强制刷新实现刷新显示当前文本修改内容
 window.addEventListener('beforeunload', function(event) {
   location.href = location.href + '?' + new Date().getTime();
