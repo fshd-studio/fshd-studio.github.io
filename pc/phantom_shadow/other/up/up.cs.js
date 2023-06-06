@@ -21,11 +21,15 @@ fileContent.innerHTML = content;
 }
 
 // 发送 GET 请求获取 up.txt 文件内容
-xhr.open('GET', './up.wb.txt', true);
+// 添加随机参数
+var randomNum = Math.random();
+xhr.open('GET', './up.wb.txt?r=' + randomNum, true);
+xhr.setRequestHeader('Cache-Control', 'no-cache');
+xhr.setRequestHeader('Pragma', 'no-cache');
+xhr.setRequestHeader('Expires', '0');
 xhr.send();
 
-
-  //控制台输出
+//控制台输出
 var styleTitle1 = `
 font-size: 20px;
 font-weight: 600;
