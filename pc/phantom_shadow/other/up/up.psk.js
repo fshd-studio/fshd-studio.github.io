@@ -21,12 +21,12 @@ fileContent.innerHTML = content;
 }
 
 // 发送 GET 请求获取 up.txt 文件内容
-xhr.setRequestHeader('Cache-Control', 'no-cache');
-xhr.setRequestHeader('Pragma', 'no-cache');
-xhr.setRequestHeader('Expires', '0');
 // 添加随机参数
 var randomNum = Math.random();
 xhr.open('GET', './up.psk.txt?r=' + randomNum, true);
+xhr.setRequestHeader('Cache-Control', 'no-cache');
+xhr.setRequestHeader('Pragma', 'no-cache');
+xhr.setRequestHeader('Expires', '0');
 xhr.send();
 
 //当用户每次刷新或进入页面时，上述代码都会执行一次，从而删除磁盘缓存
