@@ -24,6 +24,10 @@ fileContent.innerHTML = content;
 xhr.open('GET', './up.psk.txt', true);
 xhr.send();
 
+//文字都被缓存，如果文本更新，html无法正确显示当前内容，这里使用类似于强制刷新实现刷新显示当前内容
+window.addEventListener('beforeunload', function(event) {
+  location.href = location.href + '?' + new Date().getTime();
+});
 
   //控制台输出
 var styleTitle1 = `
