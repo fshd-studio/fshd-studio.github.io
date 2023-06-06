@@ -5,6 +5,6 @@ a {
 </style>
 更新日志
 
-<a href="../../../../phantom_shadow/">返回主页</a>
+<a href="../../../../phantom_shadow/" target="_blank">返回主页</a>
 此文件从  v0.0.26  版以上开始记录<br>
 <a style="color: rgb(141, 235, 64);">点击下方二维码前往腾讯问卷，也可用手机扫码</a><br><a target="_blank" href="https://wj.qq.com/s2/12294258/9caf/"><img src="..\images\qrcode.png" alt="Didn't see the picture? Refresh or contact administrator"  width="150" height="150" title="点击前往腾讯问卷，也可用手机扫码"></a><br><br>
