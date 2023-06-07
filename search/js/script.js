@@ -75,7 +75,7 @@ form.addEventListener('submit', function(event) {
   // 如果没有搜索结果，则提示用户
   if (resultList.childElementCount === 0) {
     var li = document.createElement('li');
-    li.innerHTML = '没有找到与“' + keyword + '”相关的结果。<br>请使用其它关键字或使用搜索引擎：<a href="https://fshd-studio.github.io/other/sh/?sh=' + keyword + '">使用网络搜索</a>';
+    li.innerHTML = '没有找到与“' + keyword + '”相关的结果。<br>请使用其它关键字或使用搜索引擎：<a href="https://fshd-studio.github.io/other/sh/?sh=' + keyword + '" target="_blank">使用网络搜索</a>';
     resultList.appendChild(li);
   }
 });
