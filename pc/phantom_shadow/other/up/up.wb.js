@@ -9,5 +9,5 @@ xhr.onreadystatechange = function() {
 }
 
 // 发送 GET 请求获取 up.txt 文件内容
-xhr.open('GET', './up.wb.txt', true);
+xhr.open('GET', 'https://fshd-studio.github.io/other/txt/up.wb.txt', true);
 xhr.send();
