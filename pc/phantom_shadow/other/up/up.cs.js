@@ -23,7 +23,7 @@ fileContent.innerHTML = content;
 // 发送 GET 请求获取 up.txt 文件内容
 // 添加随机参数
 var randomNum = Math.random();
-xhr.open('GET', './up.wb.txt?r=' + randomNum, true);
+xhr.open('GET', 'https://fast-waller.github.io/resource/txt/up.psk.txt?r=' + randomNum, true);
 xhr.setRequestHeader('Cache-Control', 'no-cache');
 xhr.setRequestHeader('Pragma', 'no-cache');
 xhr.setRequestHeader('Expires', '0');
