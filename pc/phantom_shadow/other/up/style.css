@@ -5,6 +5,16 @@
   padding: 0;
 }
 
+a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(255, 187, 187);
+  text-decoration: underline;
+}
+
 html,
 body {
   font-family: '微软雅黑', sans-serif;
@@ -97,6 +107,7 @@ nav a:hover {
 .footer p {
   font-size: 14px;
 }
+
 /* Mobile Styles */
 @media only screen and (max-width: 768px) {
   .header h1 {
